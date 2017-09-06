@@ -1,17 +1,28 @@
 package com.carlomatulessy.issuetracker.app;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.carlomatulessy.issuetracker.R;
+import com.carlomatulessy.issuetracker.data.User;
+import com.carlomatulessy.issuetracker.data.UserManager;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
+
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        textView = (TextView) findViewById(R.id.username);
+
+        new ReadCSVTask().execute("issues.csv");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -50,5 +65,48 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class ReadCSVTask extends AsyncTask<String, Integer, Long> {
+        protected Long doInBackground(String... fileName) {
+            long lineNumber = 0;
+            InputStreamReader inputStreamReader;
+
+            try {
+                inputStreamReader = new InputStreamReader(getAssets().open(fileName[0]));
+                Scanner inputStream = new Scanner(inputStreamReader);
+                inputStream.nextLine();
+                HashMap<String, User> users = new HashMap<>();
+
+                while (inputStream.hasNext()) {
+                    lineNumber++;
+                    String data = inputStream.nextLine();
+                    String[] userData = data.replace("\"", "").split(",");
+
+                    if (userData.length > 1) {
+                        User user = new User(userData);
+                        users.put(user.getFirstName(), user);
+                    }
+                }
+
+                inputStream.close();
+                UserManager.getInstance().setUsers(users);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return lineNumber;
+        }
+
+        //If you need to show the progress use this method
+        protected void onProgressUpdate(Integer... progress) {
+            //setYourCustomProgressPercent(progress[0]);
+        }
+
+        //This method is triggered at the end of the process, in your case when the loading has finished
+        protected void onPostExecute(Long result) {
+            User fiona = UserManager.getInstance().getUserWithName("Fiona");
+            textView.setText(fiona.getFirstName()+" "+fiona.getSurName());
+        }
     }
 }

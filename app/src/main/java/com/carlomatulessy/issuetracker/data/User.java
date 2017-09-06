@@ -11,11 +11,11 @@ public class User {
     private int issueCount;
     private String dateOfBirth;
 
-    public User(String firstName, String surName, int issueCount, String dateOfBirth) {
-        setFirstName(firstName);
-        setSurName(surName);
-        setIssueCount(issueCount);
-        setDateOfBirth(dateOfBirth);
+    public User(String[] userData) {
+        setFirstName(userData[0]);
+        setSurName(userData[1]);
+        setIssueCount(Integer.parseInt(userData[2]));
+        setDateOfBirth(userData[3]);
     }
 
     public String getFirstName() {

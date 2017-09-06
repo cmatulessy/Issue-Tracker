@@ -12,7 +12,6 @@ public class UserManager {
     private HashMap<String, User> users;
 
     protected UserManager() {
-        readDataFromCSVFile();
     }
 
     public static UserManager getInstance() {
@@ -27,7 +26,7 @@ public class UserManager {
         return users.get(name);
     }
 
-    private void readDataFromCSVFile() {
-        
+    public void setUsers(HashMap<String, User> users) {
+        this.users = users;
     }
 }
