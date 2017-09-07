@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import com.carlomatulessy.issuetracker.R;
 import com.carlomatulessy.issuetracker.data.User;
@@ -22,7 +22,7 @@ import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView;
+    private ListView usersList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        textView = (TextView) findViewById(R.id.username);
+        usersList = (ListView) findViewById(R.id.users_listview);
 
         new ReadCSVTask().execute("issues.csv");
 
@@ -105,8 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         //This method is triggered at the end of the process, in your case when the loading has finished
         protected void onPostExecute(Long result) {
-            User fiona = UserManager.getInstance().getUserWithName("Fiona");
-            textView.setText(fiona.getFirstName()+" "+fiona.getSurName());
+            usersList.setAdapter(new UsersAdapter(UserManager.getInstance().getAllUsers()));
         }
     }
 }

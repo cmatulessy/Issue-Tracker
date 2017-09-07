@@ -22,11 +22,15 @@ public class UserManager {
         return instance;
     }
 
+    public void setUsers(HashMap<String, User> users) {
+        this.users = users;
+    }
+
     public User getUserWithName(String name) {
         return users.get(name);
     }
 
-    public void setUsers(HashMap<String, User> users) {
-        this.users = users;
+    public HashMap<String, User> getAllUsers() {
+        return users;
     }
 }
