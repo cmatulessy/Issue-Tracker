@@ -47,6 +47,6 @@ public class User {
     }
 
     private void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth = DateParser.parseToDate(dateOfBirth);
     }
 }
