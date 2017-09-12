@@ -1,9 +1,5 @@
 package com.carlomatulessy.issuetracker.app;
 
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +9,6 @@ import android.widget.TextView;
 
 import com.carlomatulessy.issuetracker.R;
 import com.carlomatulessy.issuetracker.data.User;
-import com.carlomatulessy.issuetracker.data.UserManager;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,10 +60,7 @@ public class UsersAdapter extends BaseAdapter {
         userBirthDateTextView.setText(data.get(position).getDateOfBirth());
         userIssueCountTextView.setText(data.get(position).getIssueCount() + "\nissues");
 
-        Picasso.with(parent.getContext())
-                .load(data.get(position).getProfilePictureResourceId())
-                .error(R.drawable.image_not_found)
-                .into(userProfilePicture);
+        userProfilePicture.setImageResource(data.get(position).getProfilePictureResourceId());
 
         return result;
     }

@@ -45,7 +45,7 @@ public class UserManager {
                     user.setProfilePictureResourceId(R.drawable.petra);
                     break;
                 case "theo jansen" :
-                    user.setProfilePictureResourceId(R.drawable.petra);
+                    user.setProfilePictureResourceId(R.drawable.theo);
                     break;
                 default :
                     break;
