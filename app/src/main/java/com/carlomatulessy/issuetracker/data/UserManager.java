@@ -1,5 +1,6 @@
 package com.carlomatulessy.issuetracker.data;
 
+import com.carlomatulessy.issuetracker.R;
 import java.util.HashMap;
 
 /**
@@ -32,5 +33,23 @@ public class UserManager {
 
     public HashMap<String, User> getAllUsers() {
         return users;
+    }
+
+    public void setUsersAvatars() {
+        for(User user : users.values()) {
+            switch (user.getUserFullName()) {
+                case "fiona de vries" :
+                    user.setProfilePictureResourceId(R.drawable.fiona);
+                    break;
+                case "petra boersma" :
+                    user.setProfilePictureResourceId(R.drawable.petra);
+                    break;
+                case "theo jansen" :
+                    user.setProfilePictureResourceId(R.drawable.petra);
+                    break;
+                default :
+                    break;
+            }
+        }
     }
 }

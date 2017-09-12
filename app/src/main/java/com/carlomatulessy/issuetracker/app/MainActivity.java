@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         //This method is triggered at the end of the process, in your case when the loading has finished
         protected void onPostExecute(Long result) {
+            UserManager.getInstance().setUsersAvatars();
             usersList.setAdapter(new UsersAdapter(UserManager.getInstance().getAllUsers()));
         }
     }
