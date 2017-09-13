@@ -1,5 +1,6 @@
 package com.carlomatulessy.issuetracker.app;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_about) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
             return true;
         }
 
@@ -93,12 +96,6 @@ public class MainActivity extends AppCompatActivity {
             return lineNumber;
         }
 
-        //If you need to show the progress use this method
-        protected void onProgressUpdate(Integer... progress) {
-            //setYourCustomProgressPercent(progress[0]);
-        }
-
-        //This method is triggered at the end of the process, in your case when the loading has finished
         protected void onPostExecute(Long result) {
             UserManager.getInstance().setUsersAvatars();
             usersList.setAdapter(new UsersAdapter(UserManager.getInstance().getAllUsers()));

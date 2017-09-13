@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Issue Tracker</string>
     <string name="action_about">About</string>
+    <string name="about_summary">This app is constructed to showcase my skills. It reads the data from an simple CSV file and plot it in a listview. For more information you can check out the source code on Github.</string>
+    <string name="about_github">Github</string>
+    <string name="about_carlo">Carlo Matulessy</string>
 </resources>
