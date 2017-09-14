@@ -1,0 +1,26 @@
+<resources>
+    <!-- Core -->
+    <string name="app_name">Issue Tracker</string>
+    <string name="issue_tracker_image_user_desc">Picture of user</string>
+    <string name="issue_tracker_cardview_issue_title">\nissues</string>
+    <string name="userdialog_issues_text">issues are reported</string>
+    <string name="userdialog_button_cancel">Cancel</string>
+    <string name="userdialog_button_new_issue">New issue</string>
+
+    <!-- new issue -->
+    <string name="newissue_title">Create new issue:</string>
+    <string name="newissue_submit_button">Submit issue</string>
+    <string name="newissue_description">Write down what your issue is and if you have any problems while writting this issue, please create a new issue and write about it as well.</string>
+    <string name="newissue_mr_t_issue">I pity you, FOOL!</string>
+    <string name="newissue_hint">Enter issue</string>
+    <string name="newissue_snackbar_question">You have an issue with typing?</string>
+    <string name="newissue_snackbar_button">Yes</string>
+
+    <!-- About -->
+    <string name="about_title">About</string>
+    <string name="action_about">About</string>
+    <string name="about_summary">This app is constructed to showcase my skills. It reads the data from an simple CSV file and plot it in a listview. For more information you can check out the source code on Github.</string>
+    <string name="about_github">Github</string>
+    <string name="about_carlo">Carlo Matulessy</string>
+    <string name="about_image_carlo_desc">Picture of Carlo Matulessy</string>
+</resources>
