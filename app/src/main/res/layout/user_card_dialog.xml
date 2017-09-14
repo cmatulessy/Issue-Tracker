@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/mutation_dialog_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:paddingLeft="20dp">
+
+        <TextView
+            android:id="@+id/userdialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="bold"
+            android:textColor="@color/colorButtonText"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/dialog_mutation_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mutation_dialog_header">
+
+        <ImageView
+            android:id="@+id/userdialog_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/petra"
+            android:contentDescription="@string/issue_tracker_image_user_desc"/>
+
+        <TextView
+            android:id="@+id/userdialog_issue_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorButtonText"
+            android:layout_gravity="bottom"
+            android:padding="8dp"
+            android:textAlignment="center"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/dialog_button_border"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorDarkGrey"
+        android:layout_below="@id/dialog_mutation_container"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/dialog_button_border">
+        <Button
+            android:id="@+id/userdialog_cancel_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/userdialog_button_cancel"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/core_button"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorDarkGrey"
+            android:layout_below="@id/dialog_mutation_container"/>
+
+        <Button
+            android:id="@+id/userdialog_new_issue_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/userdialog_button_new_issue"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/core_button"/>
+    </LinearLayout>
+
+</RelativeLayout>

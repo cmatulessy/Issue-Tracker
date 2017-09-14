@@ -11,6 +11,7 @@ public class UserManager {
 
     private static UserManager instance = null;
     private HashMap<String, User> users;
+    private User selectedUser;
 
     private UserManager() {
     }
@@ -29,6 +30,14 @@ public class UserManager {
 
     public User getUserWithName(String name) {
         return users.get(name);
+    }
+
+    public void setSelectedUser(User user) {
+        selectedUser = user;
+    }
+
+    public User getSelectedUser() {
+        return selectedUser;
     }
 
     public HashMap<String, User> getAllUsers() {

@@ -1,16 +1,19 @@
 package com.carlomatulessy.issuetracker.app;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.carlomatulessy.issuetracker.R;
 import com.carlomatulessy.issuetracker.data.User;
@@ -40,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
         usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               Snackbar.make(view, "Open dialog screen with info", Snackbar.LENGTH_LONG)
-                       .setAction("Action", null).show();
+            openUserCardDialog((User)parent.getAdapter().getItem(position));
            }
         });
     }
@@ -63,6 +65,45 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openUserCardDialog(final User selectedUser) {
+
+
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.user_card_dialog);
+
+        TextView userCardDialogTitle = (TextView) dialog.findViewById(R.id.userdialog_title);
+        TextView userCardDialogIssue = (TextView) dialog.findViewById(R.id.userdialog_issue_text);
+        ImageView userCardDialogAvatar = (ImageView) dialog.findViewById(R.id.userdialog_avatar);
+        Button userCardDialogCancelButton = (Button) dialog.findViewById(R.id.userdialog_cancel_button);
+        Button userCardDialogNewIssueButton = (Button) dialog.findViewById(R.id.userdialog_new_issue_button);
+
+        userCardDialogTitle.setText(selectedUser.getUserFullName());
+
+        String issues = selectedUser.getIssueCount() +" "+ getResources().getString(R.string.userdialog_issues_text);
+        userCardDialogIssue.setText(issues);
+
+        userCardDialogAvatar.setImageResource(selectedUser.getProfilePictureResourceId());
+
+        userCardDialogCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+
+        userCardDialogNewIssueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserManager.getInstance().setSelectedUser(selectedUser);
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 
     private class ReadCSVTask extends AsyncTask<String, Integer, Long> {

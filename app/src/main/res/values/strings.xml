@@ -3,7 +3,9 @@
     <string name="app_name">Issue Tracker</string>
     <string name="issue_tracker_image_user_desc">Picture of user</string>
     <string name="issue_tracker_cardview_issue_title">\nissues</string>
-
+    <string name="userdialog_issues_text">issues are reported</string>
+    <string name="userdialog_button_cancel">Cancel</string>
+    <string name="userdialog_button_new_issue">New issue</string>
     <!-- About -->
     <string name="about_title">About</string>
     <string name="action_about">About</string>
