@@ -37,7 +37,7 @@ public class UserManager {
 
     public void setUsersAvatars() {
         for(User user : users.values()) {
-            switch (user.getUserFullName()) {
+            switch (user.getUserFullName().toLowerCase()) {
                 case "fiona de vries" :
                     user.setProfilePictureResourceId(R.drawable.fiona);
                     break;

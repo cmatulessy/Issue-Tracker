@@ -21,19 +21,19 @@
         android:layout_margin="8dp"/>
 
     <Button
+        android:id="@+id/about_github_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/about_github"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/colorAccentTwo"/>
+        android:textColor="@color/colorPrimaryDark"/>
 
     <Button
+        android:id="@+id/about_carlo_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/about_carlo"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/colorAccentTwo"/>
+        android:textColor="@color/colorPrimaryDark"/>
 
 </LinearLayout>

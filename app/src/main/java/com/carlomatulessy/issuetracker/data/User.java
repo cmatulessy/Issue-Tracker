@@ -1,8 +1,5 @@
 package com.carlomatulessy.issuetracker.data;
 
-import android.graphics.drawable.Drawable;
-import android.util.Log;
-
 /**
  * Created by Carlo on 5-9-2017.
  * This class is used to store the data from issues.csv
@@ -46,7 +43,7 @@ public class User {
         return this.profilePictureResourceId; }
 
     private void setUserFullName(String userFullName) {
-        this.userFullName = userFullName.toLowerCase();
+        this.userFullName = userFullName;
     }
 
     private void setFirstName(String firstName) {
