@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/carlo"
         android:layout_gravity="center"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="8dp"
+        android:contentDescription="@string/about_image_carlo_desc"/>
 
     <TextView
         android:layout_width="match_parent"

@@ -1,6 +1,8 @@
 <resources>
     <!-- Core -->
     <string name="app_name">Issue Tracker</string>
+    <string name="issue_tracker_image_user_desc">Picture of user</string>
+    <string name="issue_tracker_cardview_issue_title">\nissues</string>
 
     <!-- About -->
     <string name="about_title">About</string>
@@ -8,4 +10,5 @@
     <string name="about_summary">This app is constructed to showcase my skills. It reads the data from an simple CSV file and plot it in a listview. For more information you can check out the source code on Github.</string>
     <string name="about_github">Github</string>
     <string name="about_carlo">Carlo Matulessy</string>
+    <string name="about_image_carlo_desc">Picture of Carlo Matulessy</string>
 </resources>

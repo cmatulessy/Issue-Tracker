@@ -13,6 +13,8 @@ import com.carlomatulessy.issuetracker.data.User;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.carlomatulessy.issuetracker.R.string.issue_tracker_cardview_issue_title;
+
 /**
  * Created by Carlo on 7-9-2017.
  */
@@ -58,7 +60,8 @@ public class UsersAdapter extends BaseAdapter {
 
         usernameTextView.setText(data.get(position).getUserFullName());
         userBirthDateTextView.setText(data.get(position).getDateOfBirth());
-        userIssueCountTextView.setText(data.get(position).getIssueCount() + "\nissues");
+        String issue = data.get(position).getIssueCount() + parent.getResources().getString(issue_tracker_cardview_issue_title);
+        userIssueCountTextView.setText(issue);
 
         userProfilePicture.setImageResource(data.get(position).getProfilePictureResourceId());
 
