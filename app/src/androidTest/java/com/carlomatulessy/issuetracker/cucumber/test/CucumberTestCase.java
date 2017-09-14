@@ -6,6 +6,7 @@ import cucumber.api.CucumberOptions;
 
 /**
  * Created by Carlo on 14-9-2017.
+ * This class is used to config the CucumberOptions. It is also possible to do this through terminal
  */
 @CucumberOptions(
         features = "features",

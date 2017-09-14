@@ -27,6 +27,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
  * Created by Carlo on 14-9-2017.
+ * This class is an example of an E2E test case with Cucumber and Espresso. This class contains the
+ * StepDefinitions of the steps which are written in issues.feature
  */
 
 public class StepDefinitions extends ActivityInstrumentationTestCase2<MainActivity> {

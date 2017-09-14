@@ -7,6 +7,7 @@ import cucumber.api.android.CucumberInstrumentationCore;
 
 /**
  * Created by Carlo on 14-9-2017.
+ * This class is for initializing the test
  */
 public class Instrumentation extends MonitoringInstrumentation {
 
