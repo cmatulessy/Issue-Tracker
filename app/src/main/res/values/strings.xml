@@ -8,9 +8,13 @@
     <string name="userdialog_button_new_issue">New issue</string>
 
     <!-- new issue -->
+    <string name="newissue_title">Create new issue:</string>
     <string name="newissue_submit_button">Submit issue</string>
     <string name="newissue_description">Write down what your issue is and if you have any problems while writting this issue, please create a new issue and write about it as well.</string>
     <string name="newissue_mr_t_issue">I pity you, FOOL!</string>
+    <string name="newissue_hint">Enter issue</string>
+    <string name="newissue_snackbar_question">You have an issue with typing?</string>
+    <string name="newissue_snackbar_button">Yes</string>
 
     <!-- About -->
     <string name="about_title">About</string>

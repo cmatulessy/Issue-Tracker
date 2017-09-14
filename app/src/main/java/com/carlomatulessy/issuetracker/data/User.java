@@ -4,7 +4,6 @@ package com.carlomatulessy.issuetracker.data;
  * Created by Carlo on 5-9-2017.
  * This class is used to store the data from issues.csv
  */
-
 public class User {
     private String userFullName;
     private String firstName;
@@ -23,7 +22,7 @@ public class User {
 
     public String getUserFullName() { return this.userFullName; }
 
-    public String getFirstName() {
+    private String getFirstName() {
         return this.firstName;
     }
 

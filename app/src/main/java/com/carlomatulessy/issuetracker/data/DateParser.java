@@ -8,10 +8,10 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by Carlo on 11-9-2017.
+ * Created by Carlo on 5-9-2017.
+ * This class is used to format the date correctly for the CardView on MainActivity listview.
  */
-
-class DateParser {
+public class DateParser {
 
     public static String parseToDate(String data) {
         String result = "No data known";

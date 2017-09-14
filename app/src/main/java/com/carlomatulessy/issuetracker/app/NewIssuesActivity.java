@@ -12,6 +12,10 @@ import android.widget.TextView;
 import com.carlomatulessy.issuetracker.R;
 import com.carlomatulessy.issuetracker.data.UserManager;
 
+/**
+ * Created by Carlo on 5-9-2017.
+ * This is the class for creating a new issue screen.
+ */
 public class NewIssuesActivity extends AppCompatActivity {
     private EditText issueDescription;
     private View.OnClickListener gotIssuesClickListener;
@@ -45,8 +49,8 @@ public class NewIssuesActivity extends AppCompatActivity {
 
     private void submitIssue(String issueDescription) {
         if(issueDescription.length() <= 0) {
-            Snackbar.make(findViewById(android.R.id.content), "Are you sure you filled in your issue?", Snackbar.LENGTH_LONG)
-                    .setAction("I've got issues", gotIssuesClickListener)
+            Snackbar.make(findViewById(android.R.id.content), getResources().getText(R.string.newissue_snackbar_question), Snackbar.LENGTH_LONG)
+                    .setAction(getResources().getText(R.string.newissue_snackbar_button), gotIssuesClickListener)
                     .setActionTextColor(ContextCompat.getColor(this, R.color.colorAccent))
                     .show();
         } else {

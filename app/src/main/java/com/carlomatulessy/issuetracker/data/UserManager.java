@@ -5,13 +5,13 @@ import java.util.HashMap;
 
 /**
  * Created by Carlo on 5-9-2017.
+ * This class is responsible for managing the data during usage of the app.
+ * If we add a new issue, we add here a new count.
  */
-
 public class UserManager {
 
     private static UserManager instance = null;
     private HashMap<String, User> users;
-    private User selectedUser;
     private boolean refreshUserList = false;
 
     private UserManager() {

@@ -16,9 +16,9 @@ import java.util.HashMap;
 import static com.carlomatulessy.issuetracker.R.string.issue_tracker_cardview_issue_title;
 
 /**
- * Created by Carlo on 7-9-2017.
+ * Created by Carlo on 5-9-2017.
+ * This is the UsersAdapter where we assign the data from the user to the correct uielement on the cardview
  */
-
 class UsersAdapter extends BaseAdapter {
 
     private final ArrayList<User> data;

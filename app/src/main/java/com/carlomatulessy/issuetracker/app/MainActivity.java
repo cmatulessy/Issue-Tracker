@@ -24,6 +24,11 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Created by Carlo on 5-9-2017.
+ * This is the class with the main screen where we showcase a listview with 3 users including their
+ * avatar, name, birthdate and issue counts which we retrieve from the issues.csv file
+ */
 public class MainActivity extends AppCompatActivity {
 
     private ListView usersList;

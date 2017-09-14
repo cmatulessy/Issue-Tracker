@@ -22,8 +22,9 @@
         </activity>
         <activity
             android:name=".app.AboutActivity"
-            android:label="@string/about_title" />
-        <activity android:name=".app.NewIssuesActivity"></activity>
+            android:label="@string/about_title"/>
+        <activity android:name=".app.NewIssuesActivity"
+            android:label="@string/newissue_title"/>
     </application>
 
 </manifest>

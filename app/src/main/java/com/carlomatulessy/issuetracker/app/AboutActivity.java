@@ -9,6 +9,10 @@ import android.widget.Button;
 
 import com.carlomatulessy.issuetracker.R;
 
+/**
+ * Created by Carlo on 5-9-2017.
+ * This class is for the About page where you can find some background story about this app.
+ */
 public class AboutActivity extends AppCompatActivity {
 
     @Override
