@@ -12,6 +12,7 @@ public class UserManager {
     private static UserManager instance = null;
     private HashMap<String, User> users;
     private User selectedUser;
+    private boolean refreshUserList = false;
 
     private UserManager() {
     }
@@ -32,12 +33,12 @@ public class UserManager {
         return users.get(name);
     }
 
-    public void setSelectedUser(User user) {
-        selectedUser = user;
+    public boolean getRefreshUserList() {
+        return refreshUserList;
     }
 
-    public User getSelectedUser() {
-        return selectedUser;
+    public void setRefreshUserList(boolean refreshUserList) {
+        this.refreshUserList = refreshUserList;
     }
 
     public HashMap<String, User> getAllUsers() {

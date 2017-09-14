@@ -59,6 +59,8 @@ public class User {
         this.issueCount = issueCount;
     }
 
+    public void addOneIssueToCount() { this.issueCount++; }
+
     private void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = DateParser.parseToDate(dateOfBirth);
     }

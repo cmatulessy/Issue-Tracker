@@ -67,9 +67,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(UserManager.getInstance().getRefreshUserList()) {
+            usersList.setAdapter(new UsersAdapter(UserManager.getInstance().getAllUsers()));
+            UserManager.getInstance().setRefreshUserList(false);
+        }
+    }
+
     private void openUserCardDialog(final User selectedUser) {
-
-
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.user_card_dialog);
 
@@ -96,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
         userCardDialogNewIssueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserManager.getInstance().setSelectedUser(selectedUser);
-                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                Intent intent = new Intent(MainActivity.this, NewIssuesActivity.class);
+                intent.putExtra("username", selectedUser.getUserFullName());
                 startActivity(intent);
                 dialog.dismiss();
             }
@@ -107,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class ReadCSVTask extends AsyncTask<String, Integer, Long> {
+
+        @Override
         protected Long doInBackground(String... fileName) {
             long lineNumber = 0;
             InputStreamReader inputStreamReader;
@@ -124,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (userData.length > 1) {
                         User user = new User(userData);
-                        users.put(user.getFirstName(), user);
+                        users.put(user.getUserFullName(), user);
                     }
                 }
 
@@ -137,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
             return lineNumber;
         }
 
+        @Override
         protected void onPostExecute(Long result) {
             UserManager.getInstance().setUsersAvatars();
             usersList.setAdapter(new UsersAdapter(UserManager.getInstance().getAllUsers()));
