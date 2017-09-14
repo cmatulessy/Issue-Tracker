@@ -12,7 +12,7 @@ public class UserManager {
     private static UserManager instance = null;
     private HashMap<String, User> users;
 
-    protected UserManager() {
+    private UserManager() {
     }
 
     public static UserManager getInstance() {

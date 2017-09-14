@@ -11,7 +11,7 @@ import java.util.Locale;
  * Created by Carlo on 11-9-2017.
  */
 
-public class DateParser {
+class DateParser {
 
     public static String parseToDate(String data) {
         String result = "No data known";

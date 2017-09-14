@@ -19,9 +19,9 @@ import static com.carlomatulessy.issuetracker.R.string.issue_tracker_cardview_is
  * Created by Carlo on 7-9-2017.
  */
 
-public class UsersAdapter extends BaseAdapter {
+class UsersAdapter extends BaseAdapter {
 
-    private ArrayList<User> data;
+    private final ArrayList<User> data;
 
     public UsersAdapter(HashMap<String, User> users) {
         data = new ArrayList<>();

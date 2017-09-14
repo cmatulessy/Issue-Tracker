@@ -27,6 +27,7 @@ public class User {
         return this.firstName;
     }
 
+    @SuppressWarnings("WeakerAccess")
     public String getSurName() {
         return this.surName;
     }
