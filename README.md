@@ -3,6 +3,8 @@ Author: [Carlo Matulessy](http://www.carlomatulessy.com/)
 Date: 14-9-2017
 Version: 1.0
 
+[Download the app through the playstore](https://play.google.com/store/apps/details?id=com.carlomatulessy.issuetracker)
+
 ## The App
 The purpose of this app is to showcase how to load data from an CSV file. As you can see, I also added the following functionality:
 * If you start the app you first see a splashscreen, this will disappear if the data is loaded from the CSV file. (AsyncTask)
