@@ -3,7 +3,6 @@ apply plugin: 'spoon'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.carlomatulessy.issuetracker"
         minSdkVersion 22
@@ -39,41 +38,41 @@ spoon {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:cardview-v7:25.3.1'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:25.4.0'
+    implementation 'com.android.support:cardview-v7:25.4.0'
 
     // Unit test
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
     // Espresso tests
-    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
     // Set this dependency to use JUnit 4 rules
-    androidTestCompile 'com.android.support.test:rules:0.5'
+    androidTestImplementation 'com.android.support.test:rules:1.0.1'
     // Set this dependency to build and run Espresso tests
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    androidTestCompile 'com.android.support:support-annotations:25.3.1'
-    androidTestCompile('com.android.support.test.espresso:espresso-idling-resource:2.2.2') {
+    androidTestImplementation 'com.android.support:support-annotations:25.4.0'
+    androidTestImplementation('com.android.support.test.espresso:espresso-idling-resource:2.2.2') {
         exclude module: 'support-annotations'
     }
     // Set this dependency to build and run UI Automator tests
-    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
+    androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
     // Cucumber
-    androidTestCompile('info.cukes:cucumber-android:1.2.4') {
+    androidTestImplementation('info.cukes:cucumber-android:1.2.4') {
         exclude module: 'cucumber-jvm-deps'
     }
-    androidTestCompile('info.cukes:cucumber-picocontainer:1.2.4') {
+    androidTestImplementation('info.cukes:cucumber-picocontainer:1.2.4') {
         exclude module: 'cucumber-jvm-deps'
     }
-    androidTestCompile 'info.cukes:gherkin:2.12.2'
-    androidTestCompile('info.cukes:cucumber-html:0.2.3') {
+    androidTestImplementation 'info.cukes:gherkin:2.12.2'
+    androidTestImplementation('info.cukes:cucumber-html:0.2.3') {
         exclude module: 'cucumber-jvm-deps'
     }
-    androidTestCompile 'info.cukes:cucumber-jvm-deps:1.0.3'
+    androidTestImplementation 'info.cukes:cucumber-jvm-deps:1.0.3'
     // Screenshots
-    androidTestCompile 'com.squareup.spoon:spoon-client:1.6.4'
+    androidTestImplementation 'com.squareup.spoon:spoon-client:1.6.4'
 }
