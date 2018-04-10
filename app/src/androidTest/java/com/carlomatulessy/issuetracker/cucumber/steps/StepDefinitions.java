@@ -2,7 +2,7 @@ package com.carlomatulessy.issuetracker.cucumber.steps;
 
 import android.app.Activity;
 import android.support.test.InstrumentationRegistry;
-import android.support.test.espresso.core.deps.guava.collect.Iterables;
+import android.support.test.espresso.core.internal.deps.guava.collect.Iterables;
 import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 import android.support.test.runner.lifecycle.Stage;
 import android.test.ActivityInstrumentationTestCase2;
@@ -59,8 +59,8 @@ public class StepDefinitions extends ActivityInstrumentationTestCase2<MainActivi
     @When("^I fill in an issue with the text \"([^\"]*)\"$")
     public void iFillInAnIssueWithTheText(String messsage) {
         makeScreenshot("Start");
-        onView(withText("Theo Jansen")).perform(click());
-        makeScreenshot("Clicked_on_Theo_Jansen_cardview");
+        onView(withText("Fiona de Vries")).perform(click());
+        makeScreenshot("Clicked_on_Fiona_de_Vries_cardview");
         onView(withId(R.id.userdialog_new_issue_button)).perform(click());
         makeScreenshot("Clicked_on_New_Issue_button");
         onView(withId(R.id.newissue_description)).perform(typeText(messsage));

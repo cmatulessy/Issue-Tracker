@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.carlomatulessy.issuetracker.cucumber" tests="1" failures="0" errors="0" skipped="0" time="0.0" timestamp="2018-04-10T12:50:04" hostname="localhost">
+  <properties />
+  <testcase name="Scenario Create an issue" classname="Feature Reporting an issue" time="5.295" />
+</testsuite>

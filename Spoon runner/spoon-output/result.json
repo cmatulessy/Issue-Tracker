@@ -1,0 +1,43 @@
+{
+  "title": "Spoon Execution",
+  "started": 1523364596376,
+  "duration": 24,
+  "results": {
+    "emulator-5554": {
+      "installFailed": false,
+      "deviceDetails": {
+        "model": "Android SDK built for x86",
+        "manufacturer": "Google",
+        "version": "8.0.0",
+        "apiLevel": 26,
+        "isEmulator": true,
+        "avdName": "Nexus_5X_API_26"
+      },
+      "testResults": [
+        [
+          {
+            "className": "Feature Reporting an issue",
+            "methodName": "Scenario Create an issue"
+          },
+          {
+            "status": "PASS",
+            "duration": 5,
+            "screenshots": [
+              "/Users/carlomatulessy/Development/Clockwork/Project Issue-Tracker/Issue-Tracker/Spoon runner/spoon-output/image/emulator-5554/Feature Reporting an issue/Scenario Create an issue/1523364587876_Start.png",
+              "/Users/carlomatulessy/Development/Clockwork/Project Issue-Tracker/Issue-Tracker/Spoon runner/spoon-output/image/emulator-5554/Feature Reporting an issue/Scenario Create an issue/1523364588693_Clicked_on_Fiona_de_Vries_cardview.png",
+              "/Users/carlomatulessy/Development/Clockwork/Project Issue-Tracker/Issue-Tracker/Spoon runner/spoon-output/image/emulator-5554/Feature Reporting an issue/Scenario Create an issue/1523364589642_Clicked_on_New_Issue_button.png",
+              "/Users/carlomatulessy/Development/Clockwork/Project Issue-Tracker/Issue-Tracker/Spoon runner/spoon-output/image/emulator-5554/Feature Reporting an issue/Scenario Create an issue/1523364591632_Enter_message.png",
+              "/Users/carlomatulessy/Development/Clockwork/Project Issue-Tracker/Issue-Tracker/Spoon runner/spoon-output/image/emulator-5554/Feature Reporting an issue/Scenario Create an issue/1523364592217_final_screen.png"
+            ],
+            "files": [],
+            "animatedGif": "/Users/carlomatulessy/Development/Clockwork/Project Issue-Tracker/Issue-Tracker/Spoon runner/spoon-output/image/emulator-5554/Feature Reporting an issue/Scenario Create an issue.gif",
+            "log": []
+          }
+        ]
+      ],
+      "started": 1523364596382,
+      "duration": 5,
+      "exceptions": []
+    }
+  }
+}
