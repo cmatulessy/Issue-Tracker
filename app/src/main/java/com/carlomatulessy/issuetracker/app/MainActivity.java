@@ -32,6 +32,7 @@ import java.util.Scanner;
 public class MainActivity extends AppCompatActivity {
 
     private ListView usersList;
+    private ReadCSVTask csvTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +44,39 @@ public class MainActivity extends AppCompatActivity {
 
         usersList = (ListView) findViewById(R.id.users_listview);
 
-        new ReadCSVTask().execute("issues.csv");
-
         usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             openUserCardDialog((User)parent.getAdapter().getItem(position));
            }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        csvTask = new ReadCSVTask();
+        csvTask.execute("issues.csv");
+    }
+
+    @Override
+    public void onDestroy() {
+        if(csvTask.getStatus() == AsyncTask.Status.RUNNING) {
+            csvTask.cancel(true);
+        }
+
+        csvTask = null;
+        super.onDestroy();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(UserManager.getInstance().getRefreshUserList()) {
+            usersList.setAdapter(new UsersAdapter(UserManager.getInstance().getAllUsers()));
+            UserManager.getInstance().setRefreshUserList(false);
+        }
     }
 
     @Override
@@ -72,15 +98,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
 
-        if(UserManager.getInstance().getRefreshUserList()) {
-            usersList.setAdapter(new UsersAdapter(UserManager.getInstance().getAllUsers()));
-            UserManager.getInstance().setRefreshUserList(false);
-        }
-    }
 
     private void openUserCardDialog(final User selectedUser) {
         final Dialog dialog = new Dialog(this);
@@ -119,11 +137,10 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private class ReadCSVTask extends AsyncTask<String, Integer, Long> {
+    private class ReadCSVTask extends AsyncTask<String, Integer, Boolean> {
 
         @Override
-        protected Long doInBackground(String... fileName) {
-            long lineNumber = 0;
+        protected Boolean doInBackground(String... fileName) {
             InputStreamReader inputStreamReader;
 
             try {
@@ -133,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
                 HashMap<String, User> users = new HashMap<>();
 
                 while (inputStream.hasNext()) {
-                    lineNumber++;
                     String data = inputStream.nextLine();
                     String[] userData = data.replace("\"", "").split(",");
 
@@ -148,14 +164,19 @@ public class MainActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 e.printStackTrace();
+                return false;
             }
-            return lineNumber;
+            return true;
         }
 
         @Override
-        protected void onPostExecute(Long result) {
-            UserManager.getInstance().setUsersAvatars();
-            usersList.setAdapter(new UsersAdapter(UserManager.getInstance().getAllUsers()));
+        protected void onPostExecute(Boolean success) {
+            if(success) {
+                UserManager.getInstance().setUsersAvatars();
+                usersList.setAdapter(new UsersAdapter(UserManager.getInstance().getAllUsers()));
+            } else {
+
+            }
         }
     }
 }
